@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+      "module": "CommonJS",
+      "rootDir": ".",
+      "outDir": "../public/electron/",
+      "noEmit": false,
+      "noImplicitAny": true,
+      "sourceMap": true
+    },
+    "include": ["./**/*"]
+  }
+  

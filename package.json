@@ -9,19 +9,26 @@
   },
   "build": {
     "appId": "com.something.electron.boilerplate",
-    "productName": "Electron Boilerplate"
+    "productName": "Electron Boilerplate",
+    "extraMetadata": {
+      "main": "build/electron/my-electron.js"
+    }
   },
+  "main": "public/electron/my-electron.js",
   "private": true,
-  "main": "public/electron.js",
   "homepage": "./",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
     "start:react": "cross-env BROWSER=none rescripts start",
     "start:electron": "wait-on http://localhost:3000 && electron .",
-    "start": "concurrently -k \"yarn start:react\" \"yarn start:electron\"",
-    "build": "rescripts build",
+    "start": "concurrently -k \"yarn buildwatch:electron\" \"yarn start:react\" \"yarn start:electron\"",
+    "build": "yarn build:electron && rescripts build",
     "test": "rescripts test",
-    "dist": "yarn build && electron-builder"
+    "dist": "yarn dist:cleanup && yarn build && electron-builder",
+    "build:electron": "tsc -p src-electron/",
+    "buildwatch:electron": "tsc -p src-electron/ --watch",
+    "build:cleanup": "rm -fr build/ public/electron",
+    "dist:cleanup": "rm -fr dist/ && yarn build:cleanup"
   },
   "eslintConfig": {
     "extends": "react-app"
