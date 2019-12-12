@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./app",
+    "outDir": "./dist/",
+    "lib": ["dom", "es6", "es5", "dom.iterable"],
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "target": "es2015",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "paths": {
+      "*": ["node_modules/*"]
+    }
+  }
+}

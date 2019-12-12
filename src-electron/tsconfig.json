@@ -4,9 +4,14 @@
       "rootDir": ".",
       "outDir": "../public/electron/",
       "noEmit": false,
-      "noImplicitAny": true,
-      "sourceMap": true
+      "noImplicitAny": false,
+      "sourceMap": true,
+      "lib": ["dom", "es6", "es5", "dom.iterable"],
+      "target": "es2015",
+      "moduleResolution": "node",
+      "jsx": "preserve"
     },
-    "include": ["./**/*"]
-  }
+    "include": ["./**/*"],
+    "exclude": ["./SyncRoot/**/*","../public/electron/"]
+}
   
